@@ -72,7 +72,7 @@ class Stand(models.Model):
     group_id = models.ForeignKey(ProductGroup, to_field='id', on_delete=models.RESTRICT)
     etalon_sort = models.SmallIntegerField()
     name = models.CharField(max_length=50)
-    about = models.TextField(default=None)
+    about = models.TextField(null=True)
 
 
 class Section(models.Model):
@@ -94,6 +94,6 @@ class Item(models.Model):
     place = models.SmallIntegerField()
     page_id = models.SmallIntegerField()
     price = models.IntegerField()
-    comment = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255, null=True)
     status_id = models.ForeignKey(Status, to_field='id', on_delete=models.RESTRICT)
     led_number = models.SmallIntegerField()
